@@ -1,0 +1,26 @@
+<elgg-field :class="fieldClasses" :id="id" :required="required" :label="label" :help="help" :error="error">
+    <div slot="control" class="control" :class="controlClasses">
+        <slot name="input">
+            <input :required="required"
+                   :id="id"
+                   :placeholder="placeholder"
+                   class="input elgg-input-date"
+                   :class="inputClasses"
+                   ref="datepicker"
+            />
+            <input type="hidden" :name="name" :value="inputValue" />
+        </slot>
+        <elgg-icon
+                v-if="leftIcon"
+                :name="leftIcon"
+                :size="size"
+                position="left"
+        ></elgg-icon>
+        <elgg-icon
+                v-if="rightIcon"
+                :name="rightIcon"
+                :size="size"
+                position="right"
+        ></elgg-icon>
+    </div>
+</elgg-field>

@@ -1,0 +1,43 @@
+<elgg-field :class="fieldClasses" :id="id" :required="required" :label="label" :help="help" :error="error">
+    <div slot="control" class="control" :class="controlClasses">
+        <slot name="input">
+            <component
+                    :is="component"
+                    ref="editable"
+                    contenteditable
+                    @input="onInput"
+                    :class="inputClasses"
+                    @focus="onFocus"
+                    @blur="onBlur"
+                    :id="id"
+            >
+            </component>
+            <input hidden
+                   v-model="inputValue"
+                   type="text"
+                   :required="required"
+                   :name="name"
+            />
+        </slot>
+        <elgg-icon
+                v-if="leftIcon"
+                :name="leftIcon"
+                :size="size"
+                position="left"
+        ></elgg-icon>
+        <elgg-icon
+                v-if="rightIcon"
+                :name="rightIcon"
+                :size="size"
+                position="right"
+        ></elgg-icon>
+    </div>
+
+    <div slot="help"
+         v-if="help"
+         class="help elgg-field-help elgg-text-help"
+    >
+        {{ help }}
+    </div>
+
+</elgg-field>

@@ -1,0 +1,15 @@
+<elgg-field :class="fieldClasses" :id="id" :required="required" :label="label" :help="help" :error="error">
+    <div slot="control" class="control" :class="controlClasses">
+        <slot name="input">
+            <div :id="id"
+                 class="elgg-input-slider"
+                 :class="inputClasses"
+                 ref="slider"
+            >
+                <span class="elgg-input-slider-fill" :style="{width: fillValue + '%'}"></span>
+                <slot name="axis"></slot>
+            </div>
+            <input type="hidden" :name="name" :value="inputValue"/>
+        </slot>
+    </div>
+</elgg-field>

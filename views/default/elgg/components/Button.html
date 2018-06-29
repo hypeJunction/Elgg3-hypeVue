@@ -1,0 +1,11 @@
+<component
+    :is="tag"
+    class="button elgg-button"
+    :class="buttonClass"
+    :disabled="disabled"
+    @click="$emit('click', $event)"
+>
+    <elgg-icon v-if="icon" :name="icon"/>
+    <span v-if="text" v-html="text"></span>
+    <slot></slot>
+</component>

@@ -1,0 +1,54 @@
+.elgg-row {
+	&.is-vcentered {
+		align-items: center;
+	}
+	> * {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+		&.is-last {
+			margin-left: auto;
+		}
+	}
+}
+
+.elgg-columns {
+	&.has-padding {
+		margin-left: -0.5rem;
+		margin-tirhgt: -0.5rem;
+		& > * {
+			padding: 0.5rem;
+		}
+	}
+}
+
+.is-display-flex {
+	display: flex;
+}
+
+.is-display-inline {
+	display: inline;
+}
+
+.is-display-inline-block {
+	display: inline-block;
+}
+
+.elgg-menu {
+	&.is-horizontal {
+	    flex-direction: row;
+	    align-items: center;
+		& > li + li {
+			margin-left: 1rem;
+		}
+	}
+}
+
+.elgg-input-radio .radio-box,
+.elgg-input-checkboxes .checkbox-box {
+	display: none;
+}
+
+.elgg-input-radio > label + label,
+.elgg-input-checkboxes > label + label {
+	margin-left: 1rem;
+}

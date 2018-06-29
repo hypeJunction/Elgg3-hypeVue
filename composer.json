@@ -1,0 +1,29 @@
+{
+	"name": "hypejunction/hypevue",
+	"version": "0.0.0",
+	"type": "elgg-plugin",
+	"description": "Vue.js bootstrap for Elgg",
+	"homepage": "http://hypejunction.com",
+	"keywords": [
+		"elgg", "plugin", "vue"
+	],
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Ismayil Khayredinov",
+			"email": "info@hypejunction.com"
+		}
+	],
+	"extra": {
+		"installer-name": "hypeVue"
+	},
+	"require": {
+		"composer/installers": "~1.0",
+		"bower-asset/moment": "^2.22"
+	},
+	"autoload": {
+		"psr-0": {
+			"": "classes/"
+		}
+	}
+}

@@ -1,0 +1,26 @@
+<elgg-field :class="fieldClasses" :id="id" :required="required" :label="label" :help="help" :error="error">
+    <div slot="control" class="control" :class="controlClasses">
+        <div class="elgg-input-checkboxes" :class="inputClasses">
+            <slot name="input">
+                <template v-for="(option, index) in filteredOptions">
+                    <label class="checkbox" :class="{'elgg-state-selected': option.selected}" :id="id">
+                        <input type="checkbox"
+                               v-model="inputValue"
+                               :key="index"
+                               :name="name"
+                               :value="option.value"
+                               :disabled="option.disabled"
+                        />
+                        <slot v-if="option.slot" :name="option.slot"></slot>
+                        <template v-if="!option.slot">
+                            <span class="checkbox-box">
+                                <elgg-icon v-if="option.selected" name="check" color="primary"/>
+                            </span>
+                            <span class="checkbox-label" v-html="option.label"></span>
+                        </template>
+                    </label>
+                </template>
+            </slot>
+        </div>
+    </div>
+</elgg-field>
