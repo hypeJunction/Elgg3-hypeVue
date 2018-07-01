@@ -35,10 +35,17 @@ class Bootstrap extends PluginBootstrap {
 	public function init() {
 		elgg_register_plugin_hook_handler('elgg.data', 'page', ConfigureVue::class);
 
-		elgg_define_js('vue', [
-			'src' => '//cdn.jsdelivr.net/npm/vue/dist/vue.js',
-			'exports' => 'Vue',
-		]);
+		if (elgg_get_config('environment') === 'development') {
+			elgg_define_js('vue', [
+				'src' => '//cdn.jsdelivr.net/npm/vue/dist/vue.js',
+				'exports' => 'Vue',
+			]);
+		} else {
+			elgg_define_js('vue', [
+				'src' => '//cdn.jsdelivr.net/npm/vue/dist/vue.min.js',
+				'exports' => 'Vue',
+			]);
+		}
 
 		elgg_define_js('sortablejs', [
 			'src' => '//cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js',
