@@ -1,3 +1,13 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/hypeJunctionPro/Elgg3-hypeVue/compare/1.0.1...1.1.0) (2018-07-04)
+
+
+### Features
+
+* **components:** add new components ([941bb3d](https://github.com/hypeJunctionPro/Elgg3-hypeVue/commit/941bb3d))
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/hypeJunctionPro/Elgg3-hypeVue/compare/1.0.0...1.0.1) (2018-07-01)
 
