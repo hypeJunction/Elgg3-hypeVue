@@ -1,0 +1,17 @@
+<elgg-field :class="fieldClasses" :id="id" :required="required" :label="label" :help="help" :error="error">
+    <div slot="control" class="control" :class="controlClasses">
+        <slot name="input">
+            <input type="file"
+                   :required="required"
+                   :name="name"
+                   :id="id"
+                   :placeholder="placeholder"
+                   class="hidden"
+                   @input="updateImgSrc"
+            />
+            <label :for="id">
+                <img v-if="imgSrc" :src="imgSrc" :class="inputClasses"/>
+            </label>
+        </slot>
+    </div>
+</elgg-field>

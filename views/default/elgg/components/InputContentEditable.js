@@ -18,8 +18,8 @@ define(function (require) {
 		data: function () {
 			return {
 				inputValue: this.value,
-				editableValue: this.value,
-			}
+				editableValue: this.value
+			};
 		},
 		methods: {
 			onInput: function (event) {
@@ -34,6 +34,13 @@ define(function (require) {
 				if (!this.inputValue) {
 					event.target.innerText = this.placeholder;
 				}
+			}
+		},
+		updated: function() {
+			if (this.$refs.editable.innerText !== this.inputValue) {
+				// If the value is update from a parent component,
+				// we want to replace the inner text with the new value
+				this.$refs.editable.innerText = this.inputValue;
 			}
 		},
 		mounted: function () {

@@ -1,0 +1,18 @@
+<elgg-field :class="fieldClasses" :id="id" :required="required" :label="label" :help="help" :error="error">
+    <label slot="control" class="control"
+           :for="id"
+           :class="inputClasses"
+           :style="{
+                'background-image': 'url(' + imgSrc + ')'
+           }"
+    >
+        <input type="file"
+               :required="required"
+               :name="name"
+               :id="id"
+               :placeholder="placeholder"
+               class="hidden"
+               @input="updateImgSrc"
+        />
+    </label>
+</elgg-field>
