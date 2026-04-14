@@ -63,7 +63,12 @@ class Bootstrap extends PluginBootstrap {
 			'exports' => 'moment',
 		]);
 
-		elgg_register_css('animate', '//cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css');
+		// (4.x) elgg_register_css removed. The animate.css CDN bundle was
+		// an optional cosmetic dep; it's dropped here rather than
+		// rewired through elgg_require_css (which only accepts simple-
+		// cache view names, not external URLs). Plugins relying on the
+		// 'animate' name (hypepostadmin) have been updated to not
+		// reference it.
 
 		elgg_extend_view('elements/helpers.css', 'elements/modifiers.css');
 	}
