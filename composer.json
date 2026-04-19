@@ -5,7 +5,9 @@
 	"description": "Vue.js bootstrap for Elgg",
 	"homepage": "http://hypejunction.com",
 	"keywords": [
-		"elgg", "plugin", "vue"
+		"elgg",
+		"plugin",
+		"vue"
 	],
 	"license": "proprietary",
 	"authors": [
@@ -15,15 +17,25 @@
 		}
 	],
 	"extra": {
-		"installer-name": "hypeVue"
+		"installer-name": "hypeVue",
+		"elgg-plugin": {
+			"id": "hypevue"
+		}
 	},
 	"require": {
-		"composer/installers": "~1.0",
-		"bower-asset/moment": "^2.22"
+		"composer/installers": "^2.0",
+		"bower-asset/moment": "^2.22",
+		"php": ">=7.4",
+		"elgg/elgg": "^4.0"
 	},
 	"autoload": {
 		"psr-0": {
 			"": "classes/"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
 		}
 	}
 }
