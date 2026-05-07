@@ -31,6 +31,7 @@ define(function (require) {
 							label: option
 						};
 					}
+
 					return option;
 				});
 

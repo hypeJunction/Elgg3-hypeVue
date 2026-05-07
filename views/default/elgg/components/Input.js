@@ -81,6 +81,7 @@ define(function (require) {
 					selectors.push('elgg-field-required');
 					selectors.push('is-required');
 				}
+
 				return selectors;
 			},
 			inputClasses: function () {
@@ -88,12 +89,15 @@ define(function (require) {
 				if (this.color) {
 					selectors.push('is-' + this.color);
 				}
+
 				if (this.size) {
 					selectors.push('is-' + this.size);
 				}
+
 				if (this.error) {
 					selectors.push('elgg-state-error');
 				}
+
 				return selectors;
 			},
 			controlClasses: function () {
@@ -101,15 +105,19 @@ define(function (require) {
 				if (this.leftIcon) {
 					selectors.push('has-icons-left');
 				}
+
 				if (this.rightIcon) {
 					selectors.push('has-icons-right');
 				}
+
 				if (this.size) {
 					selectors.push('is-' + this.size);
 				}
+
 				if (this.loading) {
 					selectors.push('is-loading');
 				}
+
 				if (this.states) {
 					for (var state in this.states) {
 						if (this.states[state]) {
@@ -118,6 +126,7 @@ define(function (require) {
 						}
 					}
 				}
+
 				return selectors;
 			}
 		},

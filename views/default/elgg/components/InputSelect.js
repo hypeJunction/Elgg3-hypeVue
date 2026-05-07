@@ -28,6 +28,7 @@ define(function (require) {
 							label: option
 						};
 					}
+
 					return option;
 				});
 				if (this.placeholder) {

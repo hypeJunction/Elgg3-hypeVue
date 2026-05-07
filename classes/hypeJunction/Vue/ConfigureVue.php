@@ -4,6 +4,9 @@ namespace hypeJunction\Vue;
 
 use Elgg\Hook;
 
+/**
+ * ConfigureVue class.
+ */
 class ConfigureVue {
 
 	/**
