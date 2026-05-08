@@ -1,6 +1,6 @@
 {
 	"name": "hypejunction/hypevue",
-	"version": "1.1.0",
+	"version": "4.0.0",
 	"type": "elgg-plugin",
 	"description": "Vue.js bootstrap for Elgg",
 	"homepage": "http://hypejunction.com",
@@ -25,7 +25,7 @@
 	"require": {
 		"composer/installers": "^2.0",
 		"bower-asset/moment": "^2.22",
-		"php": ">=7.4"
+		"php": ">=8.1"
 	},
 	"repositories": [
 		{
