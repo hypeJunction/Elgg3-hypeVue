@@ -1,12 +1,38 @@
-define(function (require) {
+import Vue from 'elgg/Vue';
 
-	var Vue = require('elgg/Vue');
+const template = `<div class="field elgg-field">
+    <slot name="before"></slot>
 
-	var template = require('text!elgg/components/Field.html');
+    <slot name="label">
+        <label v-if="label"
+               :for="id"
+               class="label elgg-field-label"
+        >
+            {{ label }}
+            <span v-if="required" title="echo('field:required')" class="elgg-required-indicator">*</span>
+        </label>
+    </slot>
+    <slot name="control"></slot>
+    <slot name="help">
+        <div v-if="help"
+             class="help elgg-field-help elgg-text-help"
+        >
+            {{ help }}
+        </div>
+    </slot>
 
-	return Vue.component('elgg-field', {
-		template: template,
-		props: ['id', 'label', 'help', 'error', 'required']
-	});
+    <slot name="errors">
+        <div v-if="error"
+             class="help elgg-field-help elgg-text-help has-text-danger"
+        >{{ error }}
+        </div>
+    </slot>
 
+
+    <slot name="after"></slot>
+</div>`;
+
+export default Vue.component('elgg-field', {
+	template: template,
+	props: ['id', 'label', 'help', 'error', 'required']
 });

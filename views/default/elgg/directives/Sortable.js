@@ -1,11 +1,8 @@
-define(function(require) {
+import Vue from 'elgg/Vue';
+import Sortable from 'Sortable';
 
-	var Vue = require('elgg/Vue');
-	var Sortable = require('Sortable');
-
-	return Vue.directive('sortable', {
-		inserted: function (el, binding) {
-			new Sortable(el, binding.value || {});
-		}
-	});
+export default Vue.directive('sortable', {
+	inserted: function (el, binding) {
+		new Sortable(el, binding.value || {});
+	}
 });

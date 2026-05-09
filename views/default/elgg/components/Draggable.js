@@ -1,7 +1,4 @@
-define(function(require) {
-	var Vue = require('elgg/Vue');
+import Vue from 'elgg/Vue';
+import VueDraggable from 'vue/draggable';
 
-	var VueDraggable = require('vue/draggable');
-
-	return Vue.component('draggable', VueDraggable);
-});
+export default Vue.component('draggable', VueDraggable);
