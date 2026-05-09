@@ -1,4 +1,5 @@
-.elgg-row {
+.hype-row {
+	display: flex;
 	&.is-vcentered {
 		align-items: center;
 	}
@@ -11,10 +12,12 @@
 	}
 }
 
-.elgg-columns {
+.hype-columns {
+	display: flex;
+	flex-wrap: wrap;
 	&.has-padding {
 		margin-left: -0.5rem;
-		margin-tirhgt: -0.5rem;
+		margin-right: -0.5rem;
 		& > * {
 			padding: 0.5rem;
 		}

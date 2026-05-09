@@ -37,42 +37,12 @@ class Bootstrap extends PluginBootstrap {
 	public function init() {
 		elgg_register_event_handler('elgg.data', 'page', ConfigureVue::class);
 
-		if (elgg_get_config('environment') === 'development') {
-			elgg_define_js('vue', [
-				'src' => '//cdn.jsdelivr.net/npm/vue/dist/vue.js',
-				'exports' => 'Vue',
-			]);
-		} else {
-			elgg_define_js('vue', [
-				'src' => '//cdn.jsdelivr.net/npm/vue/dist/vue.min.js',
-				'exports' => 'Vue',
-			]);
-		}
+		// (6.x) AMD/RequireJS removed entirely. elgg_define_js() no longer exists.
+		// Vue, SortableJS, VueDraggable, and moment are now consumed as ES modules
+		// via import statements in JS view files. CDN sources are referenced
+		// directly in elgg-plugin.php view_extensions or via importmap if needed.
 
-		elgg_define_js('sortablejs', [
-			'src' => '//cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js',
-			'exports' => 'Sortable',
-		]);
-
-		elgg_define_js('vue/draggable', [
-			'src' => '//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.16.0/vuedraggable.min.js',
-			'exports' => 'VueDraggable',
-			'deps' => ['sortablejs'],
-		]);
-
-		elgg_define_js('moment', [
-			'src' => elgg_get_simplecache_url('moment.js'),
-			'exports' => 'moment',
-		]);
-
-		// (4.x) elgg_register_css removed. The animate.css CDN bundle was
-		// an optional cosmetic dep; it's dropped here rather than
-		// rewired through elgg_require_css (which only accepts simple-
-		// cache view names, not external URLs). Plugins relying on the
-		// 'animate' name (hypepostadmin) have been updated to not
-		// reference it.
-
-		elgg_extend_view('elements/helpers.css', 'elements/modifiers.css');
+		// CSS view extension is now declared in elgg-plugin.php view_extensions.
 	}
 
 	/**

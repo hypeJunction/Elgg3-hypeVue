@@ -24,16 +24,9 @@
     },
     "require": {
         "composer/installers": "^2.0",
-        "elgg/elgg": "^5.0",
-        "bower-asset/moment": "^2.22",
+        "elgg/elgg": "~6.1.0",
         "php": ">=8.2"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ],
     "autoload": {
         "psr-0": {
             "": "classes/"
