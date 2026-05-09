@@ -2,7 +2,7 @@
 
 namespace hypeJunction\Vue;
 
-use Elgg\Hook;
+use Elgg\Event;
 
 /**
  * ConfigureVue class.
@@ -12,12 +12,12 @@ class ConfigureVue {
 	/**
 	 * Set some config parameters for vue
 	 *
-	 * @param Hook $hook Hook
+	 * @param Event $event Event
 	 * @return array
 	 */
-	public function __invoke(Hook $hook) {
+	public function __invoke(Event $event) {
 
-		$value = $hook->getValue();
+		$value = $event->getValue();
 
 		$value['vue'] = [
 			'dev' => elgg_get_config('environment') === 'development',

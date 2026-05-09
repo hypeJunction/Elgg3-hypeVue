@@ -2,11 +2,11 @@
 
 namespace hypeJunction\Vue;
 
-use Elgg\HooksRegistrationService\Hook;
+use Elgg\Event;
 use Elgg\IntegrationTestCase;
 
 /**
- * ConfigureVue is the elgg.data:page hook handler that exposes the
+ * ConfigureVue is the elgg.data:page event handler that exposes the
  * `vue.dev` flag to client-side code based on the Elgg environment.
  */
 class ConfigureVueTest extends IntegrationTestCase {
@@ -27,15 +27,15 @@ class ConfigureVueTest extends IntegrationTestCase {
 
 	public function testHandlerInvokeReturnsArray(): void {
 		$handler = new ConfigureVue();
-		$hook = new Hook(elgg(), 'elgg.data', 'page', null, []);
-		$result = $handler($hook);
+		$event = new Event(elgg(), 'elgg.data', 'page', null, []);
+		$result = $handler($event);
 		$this->assertIsArray($result);
 	}
 
 	public function testHandlerAddsVueKey(): void {
 		$handler = new ConfigureVue();
-		$hook = new Hook(elgg(), 'elgg.data', 'page', null, []);
-		$result = $handler($hook);
+		$event = new Event(elgg(), 'elgg.data', 'page', null, []);
+		$result = $handler($event);
 		$this->assertArrayHasKey('vue', $result);
 		$this->assertArrayHasKey('dev', $result['vue']);
 	}
@@ -43,23 +43,23 @@ class ConfigureVueTest extends IntegrationTestCase {
 	public function testVueDevFlagFalseInProduction(): void {
 		elgg_set_config('environment', 'production');
 		$handler = new ConfigureVue();
-		$hook = new Hook(elgg(), 'elgg.data', 'page', null, []);
-		$result = $handler($hook);
+		$event = new Event(elgg(), 'elgg.data', 'page', null, []);
+		$result = $handler($event);
 		$this->assertFalse($result['vue']['dev']);
 	}
 
 	public function testVueDevFlagTrueInDevelopment(): void {
 		elgg_set_config('environment', 'development');
 		$handler = new ConfigureVue();
-		$hook = new Hook(elgg(), 'elgg.data', 'page', null, []);
-		$result = $handler($hook);
+		$event = new Event(elgg(), 'elgg.data', 'page', null, []);
+		$result = $handler($event);
 		$this->assertTrue($result['vue']['dev']);
 	}
 
 	public function testHandlerPreservesExistingHookValue(): void {
 		$handler = new ConfigureVue();
-		$hook = new Hook(elgg(), 'elgg.data', 'page', ['existing' => 'kept'], []);
-		$result = $handler($hook);
+		$event = new Event(elgg(), 'elgg.data', 'page', ['existing' => 'kept'], []);
+		$result = $handler($event);
 		$this->assertSame('kept', $result['existing']);
 	}
 }

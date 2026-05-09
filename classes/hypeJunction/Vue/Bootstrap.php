@@ -35,7 +35,7 @@ class Bootstrap extends PluginBootstrap {
 	 * {@inheritdoc}
 	 */
 	public function init() {
-		elgg_register_plugin_hook_handler('elgg.data', 'page', ConfigureVue::class);
+		elgg_register_event_handler('elgg.data', 'page', ConfigureVue::class);
 
 		if (elgg_get_config('environment') === 'development') {
 			elgg_define_js('vue', [
