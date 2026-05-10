@@ -17,7 +17,7 @@
         }
     ],
     "extra": {
-        "installer-name": "hypeVue",
+        "installer-name": "hypevue",
         "elgg-plugin": {
             "id": "hypevue"
         }
