@@ -1,41 +1,41 @@
 {
-    "name": "hypejunction/hypevue",
-    "version": "4.0.0",
-    "type": "elgg-plugin",
-    "description": "Vue.js bootstrap for Elgg",
-    "homepage": "https://github.com/hypeJunction/Elgg3-hypeVue",
-    "keywords": [
-        "elgg",
-        "plugin",
-        "vue"
-    ],
-    "license": "GPL-2.0-or-later",
-    "authors": [
-        {
-            "name": "Ismayil Khayredinov",
-            "email": "ismayil.khayredinov@gmail.com"
-        }
-    ],
-    "extra": {
-        "installer-name": "hypevue",
-        "elgg-plugin": {
-            "id": "hypevue"
-        }
-    },
-    "require": {
-        "php": ">=8.3",
-        "ext-intl": "*",
-        "composer/installers": "^2.0",
-        "elgg/elgg": "~7.0.0"
-    },
-    "autoload": {
-        "psr-0": {
-            "": "classes/"
-        }
-    },
-    "config": {
-        "allow-plugins": {
-            "composer/installers": true
-        }
+  "name": "hypejunction/hypevue",
+  "version": "4.0.0",
+  "type": "elgg-plugin",
+  "description": "Vue.js bootstrap for Elgg",
+  "homepage": "https://github.com/hypeJunction/Elgg3-hypeVue",
+  "keywords": [
+    "elgg",
+    "plugin",
+    "vue"
+  ],
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Ismayil Khayredinov",
+      "email": "ismayil.khayredinov@gmail.com"
     }
+  ],
+  "extra": {
+    "installer-name": "hypevue",
+    "elgg-plugin": {
+      "id": "hypevue"
+    }
+  },
+  "require": {
+    "php": ">=8.3",
+    "ext-intl": "*",
+    "composer/installers": "^2.0",
+    "elgg/elgg": "~7.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "hypeJunction\\\\Vue\\\\": "classes/hypeJunction/Vue/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  }
 }
