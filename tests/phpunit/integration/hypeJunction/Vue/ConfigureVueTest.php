@@ -18,11 +18,11 @@ class ConfigureVueTest extends IntegrationTestCase {
 	}
 
 	public function up(): void {
-		$this->original_environment = elgg_get_config('environment');
+		$this->original_environment = \elgg_get_config('environment');
 	}
 
 	public function down(): void {
-		elgg_set_config('environment', $this->original_environment);
+		\elgg_set_config('environment', $this->original_environment);
 	}
 
 	public function testHandlerInvokeReturnsArray(): void {
@@ -41,7 +41,7 @@ class ConfigureVueTest extends IntegrationTestCase {
 	}
 
 	public function testVueDevFlagFalseInProduction(): void {
-		elgg_set_config('environment', 'production');
+		\elgg_set_config('environment', 'production');
 		$handler = new ConfigureVue();
 		$event = new Event(elgg(), 'elgg.data', 'page', null, []);
 		$result = $handler($event);
@@ -49,7 +49,7 @@ class ConfigureVueTest extends IntegrationTestCase {
 	}
 
 	public function testVueDevFlagTrueInDevelopment(): void {
-		elgg_set_config('environment', 'development');
+		\elgg_set_config('environment', 'development');
 		$handler = new ConfigureVue();
 		$event = new Event(elgg(), 'elgg.data', 'page', null, []);
 		$result = $handler($event);

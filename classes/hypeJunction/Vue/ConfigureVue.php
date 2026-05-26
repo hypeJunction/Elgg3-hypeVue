@@ -20,7 +20,7 @@ class ConfigureVue {
 		$value = $event->getValue();
 
 		$value['vue'] = [
-			'dev' => elgg_get_config('environment') === 'development',
+			'dev' => \elgg_get_config('environment') === 'development',
 		];
 
 		return $value;

@@ -35,7 +35,7 @@ class Bootstrap extends PluginBootstrap {
 	 * {@inheritdoc}
 	 */
 	public function init() {
-		elgg_register_event_handler('elgg.data', 'page', ConfigureVue::class);
+		\elgg_register_event_handler('elgg.data', 'page', ConfigureVue::class);
 
 		// (6.x) AMD/RequireJS removed entirely. elgg_define_js() no longer exists.
 		// Vue, SortableJS, VueDraggable, and moment are now consumed as ES modules
