@@ -35,33 +35,33 @@ class Bootstrap extends PluginBootstrap {
 	 * {@inheritdoc}
 	 */
 	public function init() {
-		elgg_register_plugin_hook_handler('elgg.data', 'page', ConfigureVue::class);
+		\elgg_register_plugin_hook_handler('elgg.data', 'page', ConfigureVue::class);
 
-		if (elgg_get_config('environment') === 'development') {
-			elgg_define_js('vue', [
+		if (\elgg_get_config('environment') === 'development') {
+			\elgg_define_js('vue', [
 				'src' => '//cdn.jsdelivr.net/npm/vue/dist/vue.js',
 				'exports' => 'Vue',
 			]);
 		} else {
-			elgg_define_js('vue', [
+			\elgg_define_js('vue', [
 				'src' => '//cdn.jsdelivr.net/npm/vue/dist/vue.min.js',
 				'exports' => 'Vue',
 			]);
 		}
 
-		elgg_define_js('sortablejs', [
+		\elgg_define_js('sortablejs', [
 			'src' => '//cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js',
 			'exports' => 'Sortable',
 		]);
 
-		elgg_define_js('vue/draggable', [
+		\elgg_define_js('vue/draggable', [
 			'src' => '//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.16.0/vuedraggable.min.js',
 			'exports' => 'VueDraggable',
 			'deps' => ['sortablejs'],
 		]);
 
-		elgg_define_js('moment', [
-			'src' => elgg_get_simplecache_url('moment.js'),
+		\elgg_define_js('moment', [
+			'src' => \elgg_get_simplecache_url('moment.js'),
 			'exports' => 'moment',
 		]);
 
@@ -72,7 +72,7 @@ class Bootstrap extends PluginBootstrap {
 		// 'animate' name (hypepostadmin) have been updated to not
 		// reference it.
 
-		elgg_extend_view('elements/helpers.css', 'elements/modifiers.css');
+		\elgg_extend_view('elements/helpers.css', 'elements/modifiers.css');
 	}
 
 	/**

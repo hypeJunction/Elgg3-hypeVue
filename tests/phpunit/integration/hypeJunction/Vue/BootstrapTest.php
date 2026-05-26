@@ -26,22 +26,22 @@ class BootstrapTest extends IntegrationTestCase {
 	public function down(): void {}
 
 	public function testPluginIsRegistered(): void {
-		$this->assertInstanceOf(\ElggPlugin::class, elgg_get_plugin_from_id('hypevue'));
+		$this->assertInstanceOf(\ElggPlugin::class, \elgg_get_plugin_from_id('hypevue'));
 	}
 
 	public function testPluginIsActive(): void {
-		$this->assertTrue(elgg_get_plugin_from_id('hypevue')->isActive());
+		$this->assertTrue(\elgg_get_plugin_from_id('hypevue')->isActive());
 	}
 
 	public function testNoStartPhpPresent(): void {
 		// Elgg 4.x fatals on plugin activation if start.php is present.
 		// The 3.x migration removed it — pin its absence.
-		$pluginPath = elgg_get_plugin_from_id('hypevue')->getPath();
+		$pluginPath = \elgg_get_plugin_from_id('hypevue')->getPath();
 		$this->assertFileDoesNotExist($pluginPath . 'start.php');
 	}
 
 	public function testBootstrapRegisteredInPluginManifest(): void {
-		$plugin = elgg_get_plugin_from_id('hypevue');
+		$plugin = \elgg_get_plugin_from_id('hypevue');
 		$data = include $plugin->getPath() . 'elgg-plugin.php';
 		$this->assertArrayHasKey('bootstrap', $data);
 		$this->assertSame(Bootstrap::class, $data['bootstrap']);
@@ -61,35 +61,35 @@ class BootstrapTest extends IntegrationTestCase {
 	}
 
 	public function testElggDataPageHookWired(): void {
-		$handlers = _elgg_services()->hooks->getAllHandlers();
+		$handlers = \_elgg_services()->hooks->getAllHandlers();
 		$this->assertArrayHasKey('elgg.data', $handlers);
 		$this->assertArrayHasKey('page', $handlers['elgg.data']);
 	}
 
 	public function testMomentViewIsRegistered(): void {
-		$this->assertTrue(elgg_view_exists('moment.js'));
+		$this->assertTrue(\elgg_view_exists('moment.js'));
 	}
 
 	public function testHelpersCssExtendedWithModifiers(): void {
-		$css = elgg_view('elements/helpers.css');
-		$expected = elgg_view('elements/modifiers.css');
+		$css = \elgg_view('elements/helpers.css');
+		$expected = \elgg_view('elements/modifiers.css');
 		$this->assertNotEmpty($expected, 'modifiers.css must render content');
 		$this->assertStringContainsString($expected, $css);
 	}
 
 	public function testMomentAmdModuleDefined(): void {
-		$this->assertTrue(_elgg_services()->amdConfig->hasModule('moment'));
+		$this->assertTrue(\_elgg_services()->amdConfig->hasModule('moment'));
 	}
 
 	public function testVueAmdModuleDefined(): void {
-		$this->assertTrue(_elgg_services()->amdConfig->hasModule('vue'));
+		$this->assertTrue(\_elgg_services()->amdConfig->hasModule('vue'));
 	}
 
 	public function testSortableJsAmdModuleDefined(): void {
-		$this->assertTrue(_elgg_services()->amdConfig->hasModule('sortablejs'));
+		$this->assertTrue(\_elgg_services()->amdConfig->hasModule('sortablejs'));
 	}
 
 	public function testVueDraggableAmdModuleDefined(): void {
-		$this->assertTrue(_elgg_services()->amdConfig->hasModule('vue/draggable'));
+		$this->assertTrue(\_elgg_services()->amdConfig->hasModule('vue/draggable'));
 	}
 }
